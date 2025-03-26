@@ -10,13 +10,42 @@ def add_Natalie():
         dazu=int(st.session_state["neue_Punkte_N"])
         neu=alt+dazu
         Funktionen.update_Punkte("Natalie", neu)
+
+        with col_NP:
+            with open("Punkte_N.txt", "r") as file:
+                Punkte_N = file.readlines()
+            Punkte_N.append(st.session_state["neue_Punkte_N"]+"\n")
+            with open("Punkte_N.txt", "w") as file:
+                file.writelines(Punkte_N)
         st.session_state["neue_Punkte_N"]=""
+
+        for Punkte in Punkte_N:
+            with col_NP:
+                st.text(Punkte)
+
+
+
+    if st.session_state["neue_Aufgabe_N"]:
+        with col_N:
+            with open("Aufgaben_N.txt", "r") as file:
+                Aufgaben_N = file.readlines()
+            Aufgaben_N.append(st.session_state["neue_Aufgabe_N"]+"\n")
+            with open("Aufgaben_N.txt", "w") as file:
+                file.writelines(Aufgaben_N)
+        st.session_state["neue_Aufgabe_N"]=""
+
+        for Aufgabe in Aufgaben_N:
+            with col_N:
+                st.text(Aufgabe)
+
+
 
 
 col_N, col_NP, col_A, col_AP=st.columns(4)
 with col_N:
     st.markdown("**Natalie**")
     st.text_input(label="", placeholder="Aufgabe",
+                  on_change=add_Natalie,
                   key="neue_Aufgabe_N")
 
 with col_NP:
