@@ -32,3 +32,6 @@ with col_AP:
     st.text(Funktionen.get_Punkte("Aiman"))
     st.text_input("", key="A_Punkte")
 
+
+st.sidebar.page_link("pages/Übersicht.py", label="Zur Übersicht ➡️")
+
