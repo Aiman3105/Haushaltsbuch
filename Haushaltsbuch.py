@@ -75,5 +75,4 @@ if st.button("refresh"):
 
 
 
-st.sidebar.page_link("pages/Übersicht.py", label="Zur Übersicht ➡️")
 
